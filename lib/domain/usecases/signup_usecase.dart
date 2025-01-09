@@ -1,7 +1,6 @@
-import 'package:aak_signup/core/usecase.dart';
-import 'package:aak_signup/domain/entities/custom_failure.dart';
-import 'package:aak_signup/domain/entities/result.dart';
-
+import '../../core/usecase.dart';
+import '../entities/custom_failure.dart';
+import '../entities/result.dart';
 import '../entities/user_entity.dart';
 import '../repositories/user_repository.dart';
 
