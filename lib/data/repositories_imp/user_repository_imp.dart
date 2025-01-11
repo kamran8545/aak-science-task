@@ -1,4 +1,5 @@
 import 'package:aak_signup/data/remote_data_source/remote_data_source.dart';
+import 'package:aak_signup/domain/entities/signup_entity.dart';
 import 'package:aak_signup/utils/constants.dart';
 
 import '../../domain/entities/custom_failure.dart';
@@ -11,9 +12,9 @@ class UserRepositoryImp extends UserRepository {
   UserRepositoryImp({required RemoteDataSource remoteDataSource}) : _remoteDataSource = remoteDataSource;
 
   @override
-  Future<Result<CustomFailure, bool>> signup(userEntity) async {
+  Future<Result<CustomFailure, SignUpEntity>> signup(signupEntity) async {
     try {
-      return Success(successRes: await _remoteDataSource.signup(userEntity));
+      return Success(successRes: await _remoteDataSource.signup(signupEntity));
     } on CustomFailure catch (e) {
       return Failure(failureRes: e);
     } catch (e) {

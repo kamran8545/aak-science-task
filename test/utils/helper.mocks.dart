@@ -3,14 +3,14 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
 import 'package:aak_signup/data/remote_data_source/remote_data_source.dart'
     as _i8;
-import 'package:aak_signup/domain/entities/custom_failure.dart' as _i5;
-import 'package:aak_signup/domain/entities/result.dart' as _i4;
-import 'package:aak_signup/domain/entities/user_entity.dart' as _i6;
-import 'package:aak_signup/domain/repositories/user_repository.dart' as _i2;
+import 'package:aak_signup/domain/entities/custom_failure.dart' as _i6;
+import 'package:aak_signup/domain/entities/result.dart' as _i5;
+import 'package:aak_signup/domain/entities/signup_entity.dart' as _i2;
+import 'package:aak_signup/domain/repositories/user_repository.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
 
@@ -27,31 +27,42 @@ import 'package:mockito/src/dummies.dart' as _i7;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeSignUpEntity_0 extends _i1.SmartFake implements _i2.SignUpEntity {
+  _FakeSignUpEntity_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [UserRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUserRepository extends _i1.Mock implements _i2.UserRepository {
+class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
   MockUserRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<_i4.Result<_i5.CustomFailure, bool>> signup(
-          _i6.UserEntity? userEntity) =>
+  _i4.Future<_i5.Result<_i6.CustomFailure, _i2.SignUpEntity>> signup(
+          _i2.SignUpEntity? signupEntity) =>
       (super.noSuchMethod(
         Invocation.method(
           #signup,
-          [userEntity],
+          [signupEntity],
         ),
-        returnValue: _i3.Future<_i4.Result<_i5.CustomFailure, bool>>.value(
-            _i7.dummyValue<_i4.Result<_i5.CustomFailure, bool>>(
+        returnValue:
+            _i4.Future<_i5.Result<_i6.CustomFailure, _i2.SignUpEntity>>.value(
+                _i7.dummyValue<_i5.Result<_i6.CustomFailure, _i2.SignUpEntity>>(
           this,
           Invocation.method(
             #signup,
-            [userEntity],
+            [signupEntity],
           ),
         )),
-      ) as _i3.Future<_i4.Result<_i5.CustomFailure, bool>>);
+      ) as _i4.Future<_i5.Result<_i6.CustomFailure, _i2.SignUpEntity>>);
 }
 
 /// A class which mocks [RemoteDataSource].
@@ -63,11 +74,18 @@ class MockRemoteDataSource extends _i1.Mock implements _i8.RemoteDataSource {
   }
 
   @override
-  _i3.Future<bool> signup(_i6.UserEntity? userEntity) => (super.noSuchMethod(
+  _i4.Future<_i2.SignUpEntity> signup(_i2.SignUpEntity? signupEntity) =>
+      (super.noSuchMethod(
         Invocation.method(
           #signup,
-          [userEntity],
+          [signupEntity],
         ),
-        returnValue: _i3.Future<bool>.value(false),
-      ) as _i3.Future<bool>);
+        returnValue: _i4.Future<_i2.SignUpEntity>.value(_FakeSignUpEntity_0(
+          this,
+          Invocation.method(
+            #signup,
+            [signupEntity],
+          ),
+        )),
+      ) as _i4.Future<_i2.SignUpEntity>);
 }

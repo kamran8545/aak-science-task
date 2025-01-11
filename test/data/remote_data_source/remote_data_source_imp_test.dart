@@ -17,26 +17,26 @@ void main() {
 
     remoteDataSourceImp = RemoteDataSourceImp(dio: dio);
   });
-
-  test('Should return true if SignUp is successful', () async {
+k
+  test('Should return Success if SignUp is successful', () async {
     dioAdapter.onPost(
       ApiURLs.signupURL,
-      data: TestConstants.testUserEntity.toJson(),
-      (mockServer) => mockServer.reply(200, ''),
+      data: TestConstants.testSignupEntity.toJson(),
+      (mockServer) => mockServer.reply(200, TestConstants.testSignupEntity.toJson()),
     );
 
-    var result = await remoteDataSourceImp.signup(TestConstants.testUserEntity);
-    expect(result, true);
+    var result = await remoteDataSourceImp.signup(TestConstants.testSignupEntity);
+    expect(result.requestStatus, TestConstants.successStatus);
   });
 
-  test('Should return false if failed to SignUp', () async {
+  test('Should return Something Went Wrong if failed to SignUp', () async {
     dioAdapter.onPost(
       ApiURLs.signupURL,
-      data: TestConstants.testUserEntity.toJson(),
-      (mockServer) => mockServer.reply(201, ''),
+      data: TestConstants.testSignupEntity.toJson(),
+      (mockServer) => mockServer.reply(201, TestConstants.somethingWentWrong),
     );
 
-    var result = await remoteDataSourceImp.signup(TestConstants.testUserEntity);
-    expect(result, false);
+    var result = await remoteDataSourceImp.signup(TestConstants.testSignupEntity);
+    expect(result.requestMessage, TestConstants.somethingWentWrong);
   });
 }
