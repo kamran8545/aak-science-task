@@ -44,7 +44,7 @@ class SignupScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w700,
-                  color: AppColors.blackColor.withOpacity(0.7),
+                  color: AppColors.blackColor.withValues(alpha: 0.7),
                 ),
               ),
               BlocProvider(
