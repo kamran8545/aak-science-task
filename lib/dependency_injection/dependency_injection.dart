@@ -6,6 +6,8 @@ import 'package:aak_signup/domain/usecases/signup_usecase.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+import '../presentation/ui/signup_screen/signup_bloc/signup_bloc.dart';
+
 final sl = GetIt.I;
 
 void init() {
@@ -17,4 +19,5 @@ void init() {
   /// UseCases
   sl.registerLazySingleton<SignupUseCase>(()=> SignupUseCase(userRepository: sl()));
 
+  sl.registerLazySingleton(()=> SignupBloc(signupUseCase: sl()));
 }

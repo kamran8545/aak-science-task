@@ -28,17 +28,18 @@ class SignUpEntity {
 
   factory SignUpEntity.fromJson(Map<String, dynamic> json) {
     return SignUpEntity(
-        userId: json['user_id'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        userType: json['user_type'],
-        username: json['username'],
-        email: json['email'],
-        country: json['country'],
-        password: json['password'],
-        requestStatus: json['status'],
-        requestMessage: json['message'],
-        userActiveStatus: json['user_active_status']);
+      userId: json['user_id'] ?? -1,
+      firstName: json['first_name'] ?? '',
+      lastName: json['last_name'] ?? '',
+      userType: json['user_type'] ?? '',
+      username: json['username'] ?? '',
+      email: json['email'] ?? '',
+      country: json['country'] ?? '',
+      password: json['password'] ?? '',
+      requestStatus: json['status'] ?? '',
+      requestMessage: json['message'] ?? '',
+      userActiveStatus: json['user_active_status'] ?? '',
+    );
   }
 
   factory SignUpEntity.withResponse({
@@ -69,9 +70,9 @@ class SignUpEntity {
       'email': email,
       'country': country,
       'password': password,
-      'status' : requestStatus,
-      'message' : requestMessage,
-      'user_active_status' : userActiveStatus,
+      'status': requestStatus,
+      'message': requestMessage,
+      'user_active_status': userActiveStatus,
     };
   }
 }
