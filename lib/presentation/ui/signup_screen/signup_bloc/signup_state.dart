@@ -36,6 +36,7 @@ class SignupState extends Equatable {
     String? email,
     String? country,
     String? userType,
+    bool? showDialog,
     bool? isFormValid,
     bool? isSubmitting,
     String? errorMessage,
@@ -49,7 +50,7 @@ class SignupState extends Equatable {
       email: email ?? this.email,
       country: country ?? this.country,
       userType: userType ?? this.userType,
-      showDialog: isFormValid ?? showDialog,
+      showDialog: showDialog ?? this.showDialog,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       errorMessage: errorMessage ?? this.errorMessage,
     );
@@ -63,6 +64,11 @@ class SignupState extends Equatable {
     username,
     email,
     country,
+    password,
+    confirmPassword,
+    isSubmitting,
+    showDialog,
+    errorMessage,
   ];
 }
 
