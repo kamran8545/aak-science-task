@@ -27,7 +27,7 @@ class TextFieldWidget extends StatelessWidget {
       width: double.infinity,
       height: 35.h,
       decoration: BoxDecoration(
-        color: AppColors.primaryLightColor.withOpacity(0.1),
+        color: AppColors.primaryLightColor.withValues(alpha: 0.1),
         border: Border.all(width: 1.h, color: AppColors.primaryColor),
         borderRadius: BorderRadius.circular(10.r),
       ),
